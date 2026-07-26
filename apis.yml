@@ -1,25 +1,87 @@
 aid: dyad
+accessModel:
+  pricing: unknown
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Unknown
+  confidence: low
+  source: []
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/dyad.png
 name: Dyad
-description: Dyad is a company surfaced as a portfolio company of 500-global and added to the API Evangelist
-  network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: Dyad was surfaced as a portfolio company of 500 Global and added to the API Evangelist network
+  as a stub for enrichment. A July 2026 enrichment pass could not resolve the company to a live operating
+  surface. The seeded website (dyad.com) now serves a domain-acquisition landing page rather than a company
+  site, and Dyad no longer appears on the 500 Global public portfolio listing. Several unrelated companies
+  share the Dyad name, so no website, documentation, or API surface has been attached to this profile
+  rather than assert an identity the evidence does not support. See x-identity for the probes performed.
 url: https://raw.githubusercontent.com/api-evangelist/dyad/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - 500-global
-x-tier: stub
-x-tier-reason: portfolio-lead
+x-tier: unresolved
+x-tier-reason: identity-unresolved-seed-domain-parked
+x-identity:
+  status: unresolved
+  checked: '2026-07-20'
+  method: probed
+  seeded_url: https://dyad.com
+  seeded_url_source: https://500.co/portfolio
+  findings:
+  - note: Seeded domain resolves to a domain-acquisition / for-sale landing page, not an operating company
+      site.
+    url: https://www.dyad.com/
+    status: 200
+  - note: No well-known artifacts published on the seeded host (security.txt, openid-configuration,
+      oauth-authorization-server, api-catalog, ai-plugin.json all returned 404).
+    url: https://www.dyad.com/.well-known/security.txt
+    status: 404
+  - note: Dyad is not present in the current 500 Global public portfolio page markup; the per-company
+      path returns HTTP 200 for any string (SPA soft-404) so it cannot confirm the listing.
+    url: https://500.co/portfolio
+    status: 200
+  candidates_rejected:
+  - name: Dyad (AI app builder)
+    url: https://www.dyad.sh/
+    status: 200
+    reason: Live open-source local AI app builder (github.com/dyad-sh/dyad). No evidence linking it to
+      500 Global; not attached without corroboration.
+  - name: Dyad (clinical document intelligence)
+    url: https://dyad.ai/
+    status: 200
+    reason: Healthcare AI platform for clinical document extraction. No investor evidence linking it to
+      500 Global; not attached without corroboration.
+  - name: DYAD Motor Works
+    url: https://dyad.co/
+    status: 200
+    reason: Dallas-based engine and generator development company. Unrelated sector, not a portfolio
+      match.
+  - name: Dyad
+    url: https://www.dyad.io/
+    status: 200
+    reason: Placeholder "Coming Soon" page with no company detail.
+  next_step: Re-run when a corroborating source (funding announcement, 500 Global press, or an archived
+    portfolio entry) ties the Dyad name to a specific live domain.
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-20'
 tags:
 - Company
+- Venture Backed
+- Unresolved
 apis: []
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
-common:
-- type: Website
-  url: https://dyad.com
+common: []
+x-enrichment:
+  date: '2026-07-20'
+  status: nochange
+  artifacts_added: 0
+  pass: local-v1
