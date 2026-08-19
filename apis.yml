@@ -66,7 +66,7 @@ x-identity:
     reason: Placeholder "Coming Soon" page with no company detail.
   next_step: Re-run when a corroborating source (funding announcement, 500 Global press, or an archived
     portfolio entry) ties the Dyad name to a specific live domain.
-specificationVersion: '0.20'
+specificationVersion: '0.23'
 created: '2026-07-17'
 modified: '2026-07-20'
 tags:
